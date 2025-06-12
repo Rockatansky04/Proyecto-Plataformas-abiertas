@@ -36,7 +36,7 @@ static void __exit uptime_mod_exit(void) {
 
 
 module_init(uptime_mod_init);
-module_exit(uptime_mod_exit)
+module_exit(uptime_mod_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Luis Martinez, Daniel Brenes, Daniel Barrantes");
