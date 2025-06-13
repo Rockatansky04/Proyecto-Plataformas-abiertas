@@ -1,6 +1,6 @@
-Módulo del Kernel de Linux para Reportar Uptime
+# Módulo del Kernel de Linux para Reportar Uptime
 
--> Descripción del proyecto
+## Descripción del proyecto
 
 Este proyecto implementa un módulo del kernel de Linux escrito en lenguaje C que expone el **tiempo de actividad del sistema (uptime)** a través del sistema de archivos virtual `/proc`.
 
@@ -8,11 +8,11 @@ Al cargar el módulo, se crea un archivo llamado `/proc/uptime_mod`. Cada vez qu
 
 
 
--> Dependencias y pasos para la instalación
+## Dependencias y pasos para la instalación
 
 Este módulo debe compilarse y ejecutarse en un entorno Linux real** (no funciona en WSL2). Se recomienda usar una máquina virtual con Ubuntu 20.04 o 22.04.
 
--> Requisitos
+## Requisitos
 - Sistema operativo: Linux con soporte para carga de módulos
 - Paquetes requeridos:
 
