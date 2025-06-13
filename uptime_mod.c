@@ -18,7 +18,9 @@ static int uptime_show(struct seq_file *m, void *v) {
     return 0; 
 }
 
-//Acá va uptime open
+static int uptime_open(struct inode *inode, struct file *file) {
+    return single_open(file, uptime_show, NULL);
+}
 
 static const struct proc_ops uptime_fops = {
     .proc_open    = uptime_open,
@@ -27,7 +29,17 @@ static const struct proc_ops uptime_fops = {
     .proc_release = single_release
 };
 
-// Acá va el mod init
+static int __init uptime_mod_init(void) {
+    start_time = jiffies;
+
+    if (!proc_create(PROC_NAME, 0, NULL, &uptime_fops)) {
+        pr_alert("No se pudo crear /proc/%s\n", PROC_NAME);
+        return -ENOMEM;
+    }
+
+    pr_info("uptime_mod cargado correctamente.\n");
+    return 0;
+}
 
 static void __exit uptime_mod_exit(void) {
     remove_proc_entry(PROC_NAME, NULL); //Acá ya está contemplada una de las funciones que nos da Kerngod
