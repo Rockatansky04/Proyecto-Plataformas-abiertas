@@ -11,11 +11,13 @@ if (respuesta == 'S' || respuesta == 's'){
         printf("Se procederá a cargar el modulo");
         system("sudo insmod uptime_mod.ko"); //Subimos el modulo
 
-printf("Se está leyendo el modulo");
+        printf("Se está leyendo el modulo");
         system("cat /proc/uptime_mod"); //Analiza y lee modulo
 
         printf("Descargando el modulo uptime... \n"); //Baja el modulo
         scanf("sudo rmmod uptime_mod");
-}
-else {
+} else {
 printf("El modulo se cargará, se procederá a salir... \n");
+}
+return 0;
+}
