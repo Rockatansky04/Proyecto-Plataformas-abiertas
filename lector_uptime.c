@@ -3,21 +3,21 @@
 #include <stdlib.h>
 
 int main() {
-char respuesta;
-printf("Desea cargar el modulo uptime? (S/N)");
-scanf("%c", &respuesta);
+    char respuesta;
+    printf("Desea cargar el modulo uptime? (S/N) "); 
+    scanf(" %c", &respuesta); 
 
-if (respuesta == 'S' || respuesta == 's'){ 
-        printf("Se procederá a cargar el modulo");
-        system("sudo insmod uptime_mod.ko"); //Subimos el modulo
+    if (respuesta == 'S' || respuesta == 's'){
+        printf("Se procederá a cargar el modulo.\n"); 
+        system("sudo insmod uptime_mod.ko"); // Subimos el modulo
 
-        printf("Se está leyendo el modulo");
+        printf("Se está leyendo el modulo.\n"); 
         system("cat /proc/uptime_mod"); //Analiza y lee modulo
 
-        printf("Descargando el modulo uptime... \n"); //Baja el modulo
-        scanf("sudo rmmod uptime_mod");
-} else {
-printf("El modulo se cargará, se procederá a salir... \n");
-}
-return 0;
+        printf("Descargando el modulo uptime...\n");
+        system("sudo rmmod uptime_mod"); //Bajamos el modulo
+    } else {
+        printf("El modulo no se cargará. Saliendo...\n");
+    }
+    return 0;
 }
