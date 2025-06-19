@@ -20,16 +20,15 @@ sudo apt installl build essential linux-headers-$(uname -r)
 
 Una vez realizados los pasos de la instalación de las dependencias, se tiene que:
 
-bash
-make 
+```bash
+make
 sudo insmod uptime_mod.ko
-
-lsmod | grep uptime_mod //este paso es opcional.
+lsmod | grep uptime_mod # este paso es opcional.
 cat /proc/uptime_mod
 ./lector_uptime
 
-make valgrind // por si se desea analizar lector_uptime para detectar errores de memoria.
-make clean // limpiar el proyecto.
-
+make valgrind # por si se desea analizar lector_uptime para detectar errores de memoria.
+make clean # limpiar el proyecto.
+```
 ## Requisitos
 - Sistema operativo: Linux con soporte para carga de módulos
