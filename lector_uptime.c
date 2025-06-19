@@ -6,6 +6,7 @@
 int main() {
     char respuesta;
 
+<<<<<<< HEAD
     printf("¿Desea cargar el módulo uptime_mod? (S/N): ");
     scanf(" %c", &respuesta);
 
@@ -48,6 +49,15 @@ int main() {
         printf("Se está leyendo el modulo");
         system("cat /proc/uptime_mod"); //Analiza y lee modulo
 
+=======
+if (respuesta == 'S' || respuesta == 's'){ 
+        printf("Se procederá a cargar el modulo");
+        system("sudo insmod uptime_mod.ko"); //Subimos el modulo
+
+printf("Se está leyendo el modulo");
+        system("cat /proc/uptime_mod"); //Analiza y lee modulo
+
+>>>>>>> 151d90b (Update lector_uptime.c)
         printf("Descargando el modulo uptime... \n"); //Baja el modulo
         scanf("sudo rmmod uptime_mod");
 } else {
