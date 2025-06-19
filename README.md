@@ -14,7 +14,7 @@ Este módulo debe compilarse y ejecutarse en un entorno Linux real** (no funcion
 
 ```bash
 sudo apt update
-sudo apt installl build essential linux-headers-$(uname -r)
+sudo apt install build essential linux-headers-$(uname -r)
 ```
 
 ## Compilación
