@@ -1,9 +1,9 @@
-#include <linux/module.h>      
-#include <linux/kernel.h>        
-#include <linux/init.h>         
-#include <linux/proc_fs.h>       
-#include <linux/seq_file.h>      
-#include <linux/jiffies.h>  
+#include <linux/module.h>   //Convierte el programa en modulo
+#include <linux/kernel.h>   //Nos permite usar el pr_info()
+#include <linux/init.h>     //Permite el uso de las funcion de inicio     
+#include <linux/proc_fs.h>  //Nos permite crear los archivos virtuales con proc()
+#include <linux/seq_file.h> //Permite escribir conenido en proc     
+#include <linux/jiffies.h>  //Nos permite acceder al tiempo desde el boot del sistema
 
 #define PROC_NAME "uptime_mod"
 
@@ -27,10 +27,10 @@ static int uptime_open(struct inode *inode, struct file *file) {
 }
 
 static const struct proc_ops uptime_fops = {
-    .proc_open    = uptime_open,
-    .proc_read    = seq_read,   
-    .proc_lseek   = seq_lseek,
-    .proc_release = single_release
+    .proc_open    = uptime_open, //Desde acá se abre el archivo
+    .proc_read    = seq_read,  // Con esta función se lee
+    .proc_lseek   = seq_lseek, // Esta permite moverse en el archivo
+    .proc_release = single_release //Libera el archivo
 };
 
 static int __init uptime_mod_init(void) {
@@ -46,7 +46,7 @@ static int __init uptime_mod_init(void) {
 }
 
 static void __exit uptime_mod_exit(void) {
-    remove_proc_entry(PROC_NAME, NULL); //Acá ya está contemplada una de las funciones que nos da Kerngod
+    remove_proc_entry(PROC_NAME, NULL);
     pr_info("uptime_mod removido.\n");
 }
 
@@ -57,5 +57,3 @@ module_exit(uptime_mod_exit);
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Luis Martinez, Daniel Brenes, Daniel Barrantes");
 MODULE_DESCRIPTION("Módulo que reporta el tiempo desde que fue cargado.");
-
-//Ya solo falta agregar esas funciones, crear el makefile y estaríamos R muchachos.
