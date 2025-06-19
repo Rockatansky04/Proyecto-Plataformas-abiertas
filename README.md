@@ -12,9 +12,10 @@ Al cargar el módulo, se crea un archivo llamado `/proc/uptime_mod`. Cada vez qu
 
 Este módulo debe compilarse y ejecutarse en un entorno Linux real** (no funciona en WSL2). Se recomienda usar una máquina virtual con Ubuntu 20.04 o 22.04. La guía para la instalación de las dependencias es la siguiente:
 
-bash
+```bash
 sudo apt update
 sudo apt installl build essential linux-headers-$(uname -r)
+```
 
 ## Compilación
 
