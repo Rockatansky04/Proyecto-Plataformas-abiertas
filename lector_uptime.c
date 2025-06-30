@@ -21,8 +21,7 @@ int main() {
             sleep(1);
         }
 
-   
-        printf("Cargando el módulo uptime_mod...\n");
+   printf("Cargando el módulo uptime_mod...\n");
         int ins = system("sudo insmod uptime_mod.ko");
 
         if (ins != 0) {
@@ -30,7 +29,8 @@ int main() {
             return 1;
         }
 
-     
+        sleep(2);
+
         printf("Leyendo /proc/uptime_mod...\n");
         system("cat /proc/uptime_mod");
 
